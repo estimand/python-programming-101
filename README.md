@@ -8,14 +8,15 @@ This repository contains teaching materials (slides and Jupyter Notebooks) for t
 
 The workshop is designed to be delivered over three hours (including breaks).
 
-| Topic                        | Time       |
-| ---------------------------- | ---------- |
-| Variables and operators      | 15 minutes |
-| Data structures              | 15 minutes |
-| Flow control                 | 15 minutes |
-| Functions and libraries      | 15 minutes |
-| Exercises                    | 45 minutes |
-| Making coding more enjoyable | 15 minutes |
+| Topic                        | Time        |
+| ---------------------------- | ----------- |
+| Variables and operators      | 25 minutes  |
+| Data structures              | 25 minutes  |
+| Flow control                 | 25 minutes  |
+| Functions and libraries      | 15 minutes  |
+| Exercises                    | 45 minutes  |
+| Making coding more enjoyable | 15 minutes  |
+| *Total*                      | *2.5* hours |
 
 ## Additional resources
 
