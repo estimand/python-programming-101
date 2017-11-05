@@ -16,8 +16,8 @@
     \vfill
     \begin{block}{Goals}
         \begin{itemize}
+            \item Teach you to think like a Computer Scientist
             \item Make you self\hyp{}sufficient as a Python beginner
-            \item Teach you a little bit about Python's culture
         \end{itemize}
     \end{block}
 \end{frame}
@@ -29,7 +29,6 @@
             \item Elegant syntax
             \item Interpreted
             \item `Comes with batteries' (lots of them!)
-            \item The Zen of Python: \mintinline{python}{import this}
         \end{itemize}
     \end{block}
 \end{frame}
@@ -40,8 +39,7 @@
             \item Currently: Python 2.7 and Python 3.6
             \item Minimal differences for beginners
                   (except \mintinline{python}{print})
-            \item `Python 2.x is legacy, Python 3.x is the present and future of
-                   the language'
+            \item `Python 2.x is legacy, Python 3.x is the present and future'
         \end{itemize}
     \end{block}
 \end{frame}
@@ -59,21 +57,8 @@
         \setlength{\itemsep}{0.75em}
         \item (I)Python interpreter
         \item Scripts
-        \item Jupyter (previously IPython) Notebooks
+        \item[$\rightarrow$] Jupyter (previously IPython) Notebooks
     \end{itemize}
-\end{frame}
-
-\begin{frame}[fragile]{REPL}
-    \begin{itemize}
-        \item \textbf{R}ead some input
-        \item \textbf{E}valuate
-        \item \textbf{P}rint the result
-        \item \textbf{L}oop (i.e.\ repeat)
-    \end{itemize}
-    \vfill
-    \begin{center}
-        Let's try it now: what is \mintinline{python}{2 + 2}?
-    \end{center}
 \end{frame}
 
 \begin{frame}[fragile]{Python as a calculator}
@@ -94,6 +79,73 @@
         1 + (2**3) * 4
         1 + ((2**3) * 4)
         ((1) + (((2)**(3)) * (4)))  # Don't overdo it! :-)
+    \end{py3}
+\end{frame}
+
+\section{How to think like a \\ Computer Scientist}
+
+\begin{frame}{Thinking like a Computer Scientist}
+    \only<1>{%
+        \begin{block}{Computer Scientists\ldots}
+            \begin{itemize}
+                \item Use formal languages to denote ideas
+                \item Design things, assembling components into systems
+                \item Observe the behaviour of complex systems, form hypotheses, and
+                      test predictions
+            \end{itemize}
+        \end{block}}
+    \only<2>{%
+        \begin{center}
+            \Large%
+            What's the most important skill \\
+            for a Computer Scientist?
+        \end{center}}
+\end{frame}
+
+\begin{frame}{Algorithms}
+    \begin{itemize}
+        \setlength{\itemsep}{0.75em}
+        \item Step\hyp{}by\hyp{}step lists of instructions to solve a problem
+        \item Can be represented in a specific notation (programs)
+        \item Can be executed automatically by a computer
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Programs}
+    \begin{itemize}
+        \setlength{\itemsep}{0.75em}
+        \item Sequences of instructions that describes a computation
+        \item Basic instructions include:
+              \begin{itemize}
+                  \item Input/output
+                  \item Mathematical and logical operations
+                  \item Conditional execution (if\hyp{}then)
+                  \item Repetition
+              \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Let's write an algorithm!}
+    \begin{center}
+        \Large%
+        Given a list of numbers, compute \\
+        the sum of those divisible by two
+    \end{center}
+\end{frame}
+
+\begin{frame}[fragile]{Our algorithm\ldots~in Python}
+    \begin{py3}
+        def sum_even(numbers):
+            total = 0
+            for number in numbers:
+                if number % 2 == 0:
+                    total += number
+            return total
+    \end{py3}
+    \vfill
+    \begin{py3}
+        sum_even([0, 1, 1, 2, 3, 5, 8, 13, 21, 34])
+        sum_even(range(101))
     \end{py3}
 \end{frame}
 
@@ -154,6 +206,52 @@
     \end{py3}
 \end{frame}
 
+\section{Functions and libraries}
+
+\begin{frame}[fragile]{Functions}
+    \begin{block}{Functions\ldots}
+        \begin{itemize}
+            \item Take input \alert{arguments}
+            \item Execute statement(s)
+            \item \mintinline{python}{return} output
+        \end{itemize}
+    \end{block}
+    \vfill
+    \begin{py3}
+        def multiply(a, b):
+            return a * b
+
+        multiply(2, 3)
+    \end{py3}
+\end{frame}
+
+\begin{frame}[fragile]{Libraries}
+    \begin{block}{Libraries are\ldots}
+        \begin{itemize}
+            \item Reusable collections of code
+            \item Part of the Standard Library
+            \item Distributed through PyPI -- the Python Package Index
+        \end{itemize}
+    \end{block}
+    \vfill
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \begin{py3}
+                import random
+
+                random.randint(1, 100)
+            \end{py3}
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \begin{py3}
+                from random import randint
+
+                randint(1, 100)
+            \end{py3}
+        \end{column}
+    \end{columns}
+\end{frame}
+
 \section{Data structures}
 
 \begin{frame}[fragile]{Lists}
@@ -166,19 +264,6 @@
     \begin{py3}
         a = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34]
         b = ['I', 'love', 'Python!']
-        a + b
-    \end{py3}
-\end{frame}
-
-\begin{frame}[fragile]{Tuples}
-    \begin{itemize}
-        \item Tuples are similar to lists, but \alert{immutable}
-        \item Not necessarily of the same type
-    \end{itemize}
-    \vfill
-    \begin{py3}
-        a = (0, 1, 1, 2, 3, 5, 8, 13, 21, 34)
-        b = ('I', 'love', 'Python!')
         a + b
     \end{py3}
 \end{frame}
@@ -209,7 +294,7 @@
 \begin{frame}[fragile]{Dictionaries}
     \begin{itemize}
         \item Dictionaries store \alert{key--value pairs}
-        \item (Not necessarily of the same type)
+        \item Not necessarily of the same type
     \end{itemize}
     \vfill
     \begin{py3}
@@ -226,7 +311,7 @@
 
 \section{Flow control}
 
-\begin{frame}[fragile]{`If' statements}
+\begin{frame}[fragile]{\texttt{if} statements}
     \begin{itemize}
         \item One \mintinline{python}{if} followed by a condition
         \item Zero or more \mintinline{python}{elif}s (short for 'else if')
@@ -243,7 +328,7 @@
     \end{py3}
 \end{frame}
 
-\begin{frame}[fragile]{`For' loops}
+\begin{frame}[fragile]{\texttt{for} loops}
     \begin{columns}
         \begin{column}{0.5\textwidth}
             \begin{py3}
@@ -265,7 +350,7 @@
     \end{columns}
 \end{frame}
 
-\begin{frame}[fragile]{`For' loops with lists}
+\begin{frame}[fragile]{\texttt{for} loops with lists}
     \begin{py3}
         a = ['one', 'two', 'three', 'four', 'five']
 
@@ -277,47 +362,17 @@
     \end{py3}
 \end{frame}
 
-\begin{frame}[fragile]{List comprehensions}
-    \begin{py3}
-        a = [0, 1, 2, 3, 4, 5]
-        b = []
-
-        for x in a:
-            if x > 0:
-                b.append(x**2)
-    \end{py3}
-    \vfill
-    \begin{py3}
-        a = [0, 1, 2, 3, 4, 5]
-        b = [x**2 for x in a if x > 0]
-    \end{py3}
-\end{frame}
-
-\begin{frame}[fragile]{`For' loops with dictionaries}
-    \begin{py3}
-        a = {
-            'one': 'uno',
-            'two': 'due',
-            'three': 'tre',
-            'four': 'quattro',
-            'five': 'cinque'
-        }
-
-        for key, value in a.items():
-            print('"{}" maps to "{}"'.format(key, value))
-    \end{py3}
-\end{frame}
-
-\begin{frame}[fragile]{`While' loops}
+\begin{frame}[fragile]{\texttt{while} loops}
     \begin{columns}
         \begin{column}{0.5\textwidth}
+            \vspace{1.5em}
             \begin{py3}
                 x = 0
                 while x < 10:
                     x += 1
                     print(x)
             \end{py3}
-            \vfill
+            \vspace{0.5em}
             \begin{py3}
                 x = 0
                 while True:
@@ -337,86 +392,30 @@
     \end{columns}
 \end{frame}
 
-\section{Functions and libraries}
+\section{Making coding \\ more enjoyable}
 
-\begin{frame}[fragile]{Functions}
-    \begin{block}{Functions\ldots}
-        \begin{itemize}
-            \item Take input \alert{arguments}
-            \item Execute statement(s)
-            \item \mintinline{python}{return} output
-            \item (Not necessarily of the same type)
-        \end{itemize}
-    \end{block}
-    \vfill
-    \begin{columns}
-        \begin{column}{0.5\textwidth}
-            \begin{py3}
-                def multiply(a, b):
-                    return a * b
-
-                multiply(2, 3)
-            \end{py3}
-        \end{column}
-        \begin{column}{0.5\textwidth}
-            \begin{py3}
-                def greet(name):
-                    print('Hello ' + name)
-
-                greet('John')
-            \end{py3}
-        \end{column}
-    \end{columns}
-\end{frame}
-
-\begin{frame}[fragile]{Libraries}
-    \begin{block}{Libraries are\ldots}
-        \begin{itemize}
-            \item Reusable collections of code that someone else (or you) has
-                  already written
-            \item Part of the Standard Library
-                  (e.g.\ \mintinline{python}{random})
-            \item Distributed through PyPI -- the Python Package Index
-                  (e.g.\ \mintinline{python}{pandas})
-        \end{itemize}
-    \end{block}
-    \vfill
-    \begin{columns}
-        \begin{column}{0.5\textwidth}
-            \begin{py3}
-                import random
-
-                random.randint(1, 100)
-            \end{py3}
-        \end{column}
-        \begin{column}{0.5\textwidth}
-            \begin{py3}
-                from random import randint
-
-                randint(1, 100)
-            \end{py3}
-        \end{column}
-    \end{columns}
-\end{frame}
-
-\section{Making coding more enjoyable}
-
-\begin{frame}{Making coding more enjoyable}
-    \only<1>{%
+\begin{frame}[fragile]{Making coding more enjoyable}
+    \begin{onlyenv}<1> % \only{} doesn't play well with minted
         \begin{block}{Write short lines}
             \begin{itemize}
                 \item Don't pack too much in a single long line
-                      (historically: 80 characters)
                 \item Clever one\hyp{}liners don't make you smarter
                 \item Karma: the next person to read your code will hate you
             \end{itemize}
-        \end{block}}
+            \vfill
+            \begin{py3}
+                def primes(n):
+                    return set(range(2, n+1)) - \
+                           set(p*f for p in range(2, int(n**0.5) + 2)
+                                   for f in range(2, n//p + 1))
+            \end{py3}
+        \end{block}
+    \end{onlyenv}
     \only<2>{%
         \begin{block}{Write short functions}
             \begin{itemize}
                 \item If it doesn't fit on screen, break it down
                 \item Think in a modular way
-                      (giving birth to programs is painful)
                 \item Write reusable code and don't repeat yourself
             \end{itemize}
         \end{block}}
@@ -425,8 +424,8 @@
             \begin{itemize}
                 \item For both functions and variables
                 \item Make the purpose clear
-                \item The code should be the documentation\ldots~but write the
-                      documentation too
+                \item The code should be the documentation \\
+                      (but write the documentation too)
             \end{itemize}
         \end{block}}
     \only<4>{%
@@ -434,7 +433,7 @@
             \begin{itemize}
                 \item Understand and accept that you will make mistakes
                 \item There is no royal road to coding
-                \item `Negative lines of code'
+                \item Don't be afraid of `negative lines of code'
             \end{itemize}
         \end{block}}
 \end{frame}
